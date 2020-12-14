@@ -21,9 +21,16 @@
                     <v-icon left v-else>mdi-check-bold</v-icon>
                     <span>Feito</span>
                 </v-btn>
-                <v-btn rounded text class="mx-1" :color="tarefa.feito? 'purple lighten-4' : 'deep-purple accent-4'">
-                    <v-icon left>mdi-trash-can-outline</v-icon>
-                    <span>Excluir</span>
+                <v-btn 
+                    rounded 
+                    text 
+                    class="mx-1" 
+                    :color="tarefa.feito? 'deep-purple accent-4' : 'purple lighten-4'"
+                    :disabled="!tarefa.feito"
+                    @click="arquivar"
+                >
+                    <v-icon left>mdi-file-cabinet</v-icon>
+                    <span>Arquivar</span>
                 </v-btn>
             </v-card-actions>
         </v-card>
@@ -38,6 +45,9 @@ export default {
     methods:{
         feito(){
             this.$store.dispatch('marcarComoFeito',this.tarefa)
+        },
+        arquivar(){
+            this.$store.dispatch('arquivarTarefa',this.tarefa)
         }
     }
 }
