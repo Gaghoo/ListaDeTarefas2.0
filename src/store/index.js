@@ -53,7 +53,7 @@ export default new Vuex.Store({
     },
     arquivarTarefa({commit}, payload){
       const tarefaArquivada = payload
-      const quando = new Date
+      const quando = new Date()
       tarefaArquivada.quando = quando
       // console.log(tarefaArquivada.id)
       commit('arquivarTarefa', tarefaArquivada)
