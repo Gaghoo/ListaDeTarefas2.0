@@ -1,5 +1,5 @@
 <template>
-    <v-card outlined class="mx-auto pa-0" elevation="10">
+    <v-card outlined class="mx-auto pa-0" elevation="10" color="deep-purple lighten-5">
         <v-card-actions>
             <!-- <v-form 
                 ref="from"

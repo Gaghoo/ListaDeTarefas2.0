@@ -7,13 +7,18 @@ export default new Vuex.Store({
   state: {
     tarefas: [],
     tarefasArquivadas:[],
-    inicId: 1
+    inicId: 1,
+    anotacoes: []
   },
   mutations:{
     novaTarefa(state, payload) {
       state.tarefas.push(payload)
       state.inicId++
       console.log(state.inicId)
+    },
+    novaAnotacao(state, payload){
+      state.anotacoes.push(payload)
+      console.log(state.anotacoes)
     },
     marcarComoFeito(state, payload){
       const index = state.tarefas.findIndex(item => item.id === payload.id)
@@ -46,6 +51,19 @@ export default new Vuex.Store({
         setTimeout(() => {
           commit('novaTarefa', tarefa)
         }, 500);
+      }
+    },
+    novaAnotacao({commit}, payload){
+      const anotacao = {
+        titulo: payload.titulo,
+        desc: payload.desc,
+        quando: new Date(),
+      }
+      if(anotacao.titulo.length > 0 || anotacao.desc.length > 0){
+        setTimeout(() => {
+          commit('novaAnotacao', anotacao)
+          console.log(anotacao)
+        }, 1000);
       }
     },
     marcarComoFeito({commit}, payload){

@@ -12,6 +12,11 @@
 
             <v-spacer></v-spacer>
 
+            <v-btn rounded text to="/tarefas">
+                <span>Tarefas</span>
+                <v-icon right>mdi-format-list-checks</v-icon>
+            </v-btn>
+
             <v-btn rounded text to="/">
                 <span>Home</span>
                 <v-icon right>mdi-home-outline</v-icon>
